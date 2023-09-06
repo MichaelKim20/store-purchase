@@ -176,7 +176,7 @@ export class RollupRouter {
                     .not()
                     .isEmpty()
                     .withMessage("method is a required value")
-                    .isIn(["1", "2" , "3"])
+                    .isIn(["0", "1" , "2"])
                     .withMessage(`method input type error ,Enter "0" for cash or card or "1" for mileage or "2" for token`)
                     .bail(),
                 body("signer")

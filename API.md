@@ -14,7 +14,7 @@
   - amount : 구매 금액 
   - franchisee_id: 가맹점 아이디
   - user_email : 사용자의 이메일 없을 때는 빈문자열
-  - method	: 결제한 매체 (1: 현금또는 카드, 2: 마일리지, 3: 토큰)
+  - method	: 결제한 매체 (0: 현금또는 카드, 1: 마일리지, 2: 토큰)
   - signer : 서명자의 전송자 BOA 주소
   - signature : 전송자 서명  
 
