@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+   ipfs:
+    container_name: ipfs
+    hostname: ipfs
+    image: ipfs/go-ipfs
+    ports:
+      - "8080:8080"
+      - "4001:4001"
+      - "4001:4001/udp"
+      - "5001:5001"
+    volumes:
+      - ./ipfs:/data/ipfs
+      - ./ipfs_staging:/staging
+    restart: always
+    networks:
+      - ipfs-network
+
+   store-purchase:
+     container_name: store-purchase
+     hostname: store-purchase
+     image:  bosagora/store-purchase:v1.0.0
+     ports:
+       - "3000:3000"
+     volumes:
+       - "./config/:/rollup/config/"
+       - "./env/:/rollup/env/"
+       - "./logs/:/rollup/logs/"
+       - "./db/:/rollup/db/"
+     restart: always
+     networks:
+       - ipfs-network
+
+networks:
+  ipfs-network:
+    driver: bridge
