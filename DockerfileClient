@@ -3,10 +3,10 @@ FROM node:16.9.1-alpine
 RUN apk add --no-cache git py-pip alpine-sdk \
     bash autoconf libtool automake
 
-WORKDIR /rollup/
+WORKDIR /store-purchase/
 
-ADD . /rollup/
-RUN npm ci --prefix /rollup/ && npm run build --prefix /rollup/
+ADD . /store-purchase/
+RUN npm ci --prefix /store-purchase/ && npm run build --prefix /store-purchase/
 
 # Starts a node process, which compiles TS and watches `src` for changes
-ENTRYPOINT [ "/rollup/docker/entrypoint_client.sh" ]
+ENTRYPOINT [ "/store-purchase/docker/entrypoint_client.sh" ]
